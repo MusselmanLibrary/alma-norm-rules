@@ -1,0 +1,288 @@
+rule "add open access indicator"
+ when
+ True
+ then
+ set "Unrestricted online access" in "dcterms"."accessRights"
+end
+
+rule "remove dc.format"
+ when
+ exist "dc"."format"
+ then
+ remove "dc"."format"
+end
+
+rule "remove dc.publisher"
+ when
+ exist "dc"."publisher"
+ then
+ remove "dc"."publisher"
+end
+
+rule "add dc.rights"
+ when
+ exist "dc"."rights"
+ then
+ move "dc"."rights" to "discovery"."local18"
+end
+
+
+
+rule "from dc:type articles to discovery:type articles"
+	when
+		"dc"."type" equals "article"
+	then
+		set "articles" in "discovery"."resourceType"
+end
+
+rule "from dc:type interview to discovery:type articles"
+	when
+		"dc"."type" equals "interview"
+	then
+		set "articles" in "discovery"."resourceType"
+end
+
+rule "from dc:type findingaid to discovery:type archival_materials"
+	when
+		"dc"."type" equals "findingaid"
+	then
+		set "archival_materials" in "discovery"."resourceType"
+end
+
+rule "from dc:type audio to discovery:type audio"
+	when
+		"dc"."type" equals "audio"
+	then
+		set "audio" in "discovery"."resourceType"
+end
+
+rule "from dc:type art_catalog to discovery:type books"
+	when
+		"dc"."type" equals "art_catalog"
+	then
+		set "book" in "discovery"."resourceType"
+end
+
+rule "from dc:type book to discovery:type books"
+	when
+		"dc"."type" equals "book"
+	then
+		set "books" in "discovery"."resourceType"
+end
+
+rule "from dc:type chapter to discovery:type books"
+	when
+		"dc"."type" equals "chapter"
+	then
+		set "books" in "discovery"."resourceType"
+end
+
+rule "from dc:type conference to discovery:type conference_proceedings"
+	when
+		"dc"."type" equals "conference"
+	then
+		set "conference_proceedings" in "discovery"."resourceType"
+end
+
+rule "from dc:type dissertation to discovery:type dissertations"
+	when
+		"dc"."type" equals "dissertation"
+	then
+		set "dissertations" in "discovery"."resourceType"
+end
+
+rule "from dc:type art to discovery:type images"
+	when
+		"dc"."type" equals "art"
+	then
+		set "images" in "discovery"."resourceType"
+end
+
+rule "from dc:type image to discovery:type images"
+	when
+		"dc"."type" equals "image"
+	then
+		set "images" in "discovery"."resourceType"
+end
+
+rule "from dc:type full_issue to discovery:type journals"
+	when
+		"dc"."type" equals "full_issues"
+	then
+		set "journals" in "discovery"."resourceType"
+end
+
+rule "from dc:type opinion to discovery:type newspaper_articles"
+	when
+		"dc"."type" equals "opinion"
+	then
+		set "newspaper_articles" in "discovery"."resourceType"
+end
+
+rule "from dc:type event to discovery:type other"
+	when
+		"dc"."type" equals "event"
+	then
+		set "other" in "discovery"."resourceType"
+end
+
+rule "from dc:type front_matter to discovery:type other"
+	when
+		"dc"."type" equals "front_matter"
+	then
+		set "other" in "discovery"."resourceType"
+end
+
+rule "from dc:type other to discovery:type other"
+	when
+		"dc"."type" equals "other"
+	then
+		set "other" in "discovery"."resourceType"
+end
+
+rule "from dc:type poster to discovery:type other"
+	when
+		"dc"."type" equals "poster"
+	then
+		set "other" in "discovery"."resourceType"
+end
+
+rule "from dc:type presentation to discovery:type other"
+	when
+		"dc"."type" equals "presentation"
+	then
+		set "other" in "discovery"."resourceType"
+end
+
+rule "from dc:type encyclopedia_article to discovery:type reference_entrys"
+	when
+		"dc"."type" equals "encyclopedia_article"
+	then
+		set "reference_entrys" in "discovery"."resourceType"
+end
+
+rule "from dc:type bookreview to discovery:type reviews"
+	when
+		"dc"."type" equals "bookreview"
+	then
+		set "reviews" in "discovery"."resourceType"
+end
+
+rule "from dc:type review to discovery:type reviews"
+	when
+		"dc"."type" equals "review"
+	then
+		set "reviews" in "discovery"."resourceType"
+end
+
+rule "from dc:type composition to discovery:type scores"
+	when
+		"dc"."type" equals "composition"
+	then
+		set "scores" in "discovery"."resourceType"
+end
+
+rule "from dc:type translation to discovery:type text_resources"
+	when
+		"dc"."type" equals "translation"
+	then
+		set "text_resources" in "discovery"."resourceType"
+end
+
+rule "from dc:type video to discovery:type videos"
+	when
+		"dc"."type" equals "video"
+	then
+		set "videos" in "discovery"."resourceType"
+end
+
+rule "from dc:type blog to discovery:type websites"
+	when
+		"dc"."type" equals "blog"
+	then
+		set "websites" in "discovery"."resourceType"
+end
+
+rule "from dc:type digital_project to discovery:type websites"
+	when
+		"dc"."type" equals "digital_project"
+	then
+		set "websites" in "discovery"."resourceType"
+end
+
+rule "from dc:type additionalresources to discovery:type college_documents"
+	when
+		"dc"."type" equals "additionalresources"
+	then
+		set "college_documents" in "discovery"."resourceType"
+end
+
+rule "from dc:type agenda to discovery:type college_documents"
+	when
+		"dc"."type" equals "agenda"
+	then
+		set "college_documents" in "discovery"."resourceType"
+end
+
+rule "from dc:type minutes to discovery:type college_documents"
+	when
+		"dc"."type" equals "minutes"
+	then
+		set "college_documents" in "discovery"."resourceType"
+end
+
+rule "from dc:type motion to discovery:type college_documents"
+	when
+		"dc"."type" equals "motion"
+	then
+		set "college_documents" in "discovery"."resourceType"
+end
+
+rule "from dc:type report to discovery:type college_documents"
+	when
+		"dc"."type" equals "report"
+	then
+		set "college_documents" in "discovery"."resourceType"
+end
+
+rule "from dc:type newsletter to discovery:type college_documents"
+	when
+		"dc"."type" equals "newsletter"
+	then
+		set "college_documents" in "discovery"."resourceType"
+end
+
+rule "from dc:type creative_writing to discovery:type creative_writing"
+	when
+		"dc"."type" equals "creative_writing"
+	then
+		set "creative_writing" in "discovery"."resourceType"
+end
+
+rule "from dc:type fiction to discovery:type creative_writing"
+	when
+		"dc"."type" equals "fiction"
+	then
+		set "creative_writing" in "discovery"."resourceType"
+end
+
+rule "from dc:type nonfiction to discovery:type creative_writing"
+	when
+		"dc"."type" equals "nonfiction"
+	then
+		set "creative_writing" in "discovery"."resourceType"
+end
+
+rule "from dc:type poetry to discovery:type creative_writing"
+	when
+		"dc"."type" equals "poetry"
+	then
+		set "creative_writing" in "discovery"."resourceType"
+end
+
+rule "from dc:type student_research to discovery:type student_research"
+	when
+		"dc"."type" equals "student_research"
+	then
+		set "student_research" in "discovery"."resourceType"
+end
